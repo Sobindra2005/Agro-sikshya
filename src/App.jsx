@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {client} from './appwrite/appwrite'
 
 function App() {
   return (
