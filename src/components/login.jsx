@@ -3,6 +3,8 @@ import Thumbnail from '../assets/thumbnail/hum.jpg';
 import { CiMail } from "react-icons/ci";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import { FaGoogle,FaFacebook,FaApple } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 export default function Login() {
   return (
@@ -66,6 +68,16 @@ export default function Login() {
               <button type='submit' className='border w-96 m-2 p-2 bg-accent text-white hover:text-accent hover:bg-primary'>
                 Sign in
               </button>
+            </div>
+            <div className='flex flex-col justify-center items-center'>
+
+            <p className=' border-x-2 border-accent p-2'>OR</p>
+            <p>Don't have an account? <span className='text-accent'>Sign up</span></p>
+            <div className='flex space-x-4 text-2xl '>
+              <FcGoogle/>
+              <FaFacebook/>
+              <FaApple/>
+            </div>
             </div>
           </form>
         </div>
