@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default function Header() {
   return (
     <>
-    <div className='flex items-center justify-between p-2'>
+    <div className='flex items-center justify-between p-2 fixed top-0 left-10'>
         <div className='flex justify-start items-center '>
         <svg width="40" height="43" viewBox="0 0 40 43" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M28.6144 23.8404C25.4724 11.1837 9.33565 2.29999 9.33565 2.29999C9.33565 2.29999 -0.262843 18.1947 3.24238 30.7408C3.24238 30.7592 3.24238 30.7869 3.25146 30.8053C3.26054 30.8514 3.27871 30.8884 3.29686 30.9345C3.34227 31.0913 3.37859 31.2389 3.424 31.3957H3.44216C5.55801 38.1484 12.5321 42.0968 19.3428 40.2425C26.1534 38.3883 30.258 31.4234 28.7597 24.5046H28.7778C28.7415 24.3478 28.7052 24.191 28.6598 24.0341C28.6507 23.988 28.6416 23.9419 28.6326 23.905C28.6326 23.8865 28.6144 23.8681 28.6144 23.8404Z" fill="#FFD317"/>
@@ -13,7 +13,7 @@ export default function Header() {
 <p>Agro-sikshya</p>
         </div>
         <div>
-             <ul className='space-x-44 p-2'>
+             <ul className='space-x-24 fixed top-2 right-10  p-2  ml-10'>
                 <Link to='/'> Home</Link>
                 <Link to='/'> Service</Link>
                 <Link to='/'> About Us</Link>
