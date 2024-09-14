@@ -3,7 +3,7 @@ import { client } from "./appwrite";
 
 export const signup = (email, password) => {
     const account = new Account(client);
-    const responce = account.create(ID.unique(), `${email}`, `${password}`);
+    const responce = account.create('unique()', `${email}`, `${password}`);
     responce.then(function (response) {
         console.log("account is created", response);
     }, function (error) {
@@ -12,6 +12,7 @@ export const signup = (email, password) => {
 }
 
 export const signin = (email, password, rememberMe) => {
+    const account = new Account(client);
     const responce = account.createEmailPasswordSession(`${email}`, `${password}`);
     responce.then(function (response) {
         console.log("account is logged", response);
