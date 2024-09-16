@@ -1,10 +1,10 @@
 import React from 'react'
-import A from '../assets/thumbnail/1.jpg'
+import A from '../../assets/thumbnail/1.jpg'
 export default function Home() {
   return (
     <>
     <div className=''>
-      <img src={A} alt="" />
+      <h6 className='font-bold'>Community Forum</h6>
     </div>
     </>
   )

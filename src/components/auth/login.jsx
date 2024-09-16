@@ -22,7 +22,7 @@ export default function Login() {
 
   return (
     <>
-      <div>
+    
         <div
           className="min-h-screen bg-cover bg-center flex flex-col justify-center  "
           style={{ backgroundImage: `url(${Thumbnail})` }}
@@ -123,7 +123,7 @@ export default function Login() {
             </div>
           </div>
         </div>
-      </div>
+    
     </>
   );
 }
