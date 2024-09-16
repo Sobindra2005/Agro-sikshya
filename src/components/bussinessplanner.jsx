@@ -11,11 +11,13 @@ export const BussinessPlanner = () => {
 
         {/* bussiness planner  */}
         <div className="w-full p-6">
-          <div className="h-[100vh]  flex  ">
+          <div className="  flex  ">
             <div className=" flex flex-col  w-[94%]">
-              <span>Bussiness planner</span>
-              <MainBussinessPlanner/>
-         </div>
+              <span className="font-semibold text-lg text-gray-900">
+                Bussiness planner
+              </span>
+              <MainBussinessPlanner />
+            </div>
             <img className="w-16 h-16 ml-4" src={`${image}`} />
           </div>
         </div>

@@ -8,6 +8,7 @@ import Setting from "./components/setting";
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import Sidebar from "./components/menu/sidebar";
+
 function App() {
   useEffect(() => {
     const key = localStorage.key(0);
@@ -24,8 +25,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/setting" element={<Setting />} />
+          <Route path="/bussinessplan" element={<BussinessPlanner />} />
         </Routes>
-      </div>
+      </div> 
     </>
   );
 }

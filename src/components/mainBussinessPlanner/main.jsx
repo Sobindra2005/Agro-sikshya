@@ -36,9 +36,14 @@ export const MainBussinessPlanner = () => {
   const [landRate, setLandRate] = useState(20);
   const [distance, setDistance] = useState(2);
 
+
+  const handlesubmit=(e)=>{
+    e.preventDefault()
+    console.log('button submitted')
+  }
   return (
     <>
-      <div className="border overflow-hidden mt-5 box-sizing: border-box border-black bg-[#FFD31757]  h-[100vh]">
+      <div className="border border-gray-500 overflow-hidden mt-5 box-sizing: border-box  bg-[#FFD31757]  h-[100vh]">
         <span className="text-[16px] text-[#555555] font-semibold ">
           <div className="flex p-4 flex-col">
             <span>Choose a farming type</span>
@@ -69,78 +74,74 @@ export const MainBussinessPlanner = () => {
               })}
             </div>
           </div>
-          <div className="p-4 bg-[#FFD31763] h-[60vh]  mt-7 ">
-            <span>Set Parameters</span>
-
-            <div className="">
-              <label className="block font-medium ">Farm Size (in acres)</label>
-              <select
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-                value={farmSize}
-                onChange={(e) => setFarmSize(e.target.value)}
-              >
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-
-            {/* Farm Scale */}
-            <div className="">
-              <label className="block font-medium ">Farm Scale</label>
-              <div className="flex space-x-4">
-                {["Small", "Medium", "Large"].map((scale) => (
-                  <label key={scale} className="flex items-center space-x-2">
-                    <input
-                      type="radio"
-                      value={scale}
-                      checked={farmScale === scale}
-                      onChange={() => setFarmScale(scale)}
-                      className="text-green-500 focus:ring-green-500"
-                    />
-                    <span>{scale}</span>
-                  </label>
-                ))}
+          <form onSubmit={(e)=>handlesubmit(e)}>
+            <div className="p-4 font-normal bg-[#FFD31763] h-[60vh]  mt-7 ">
+              <span className="text-gray-800 font-semibold text-lg ">
+                Set Parameters
+              </span>
+              <div className="mb-2">
+                <label className="block font-medium mb-1 ">
+                  Farm Size (in acres)
+                </label>
+                <input
+                  type="number"
+                  className=" px-3 py-1 border border-gray-300  outline-none w-48 focus:border-gray-600 hover:border-gray-600"
+                  value={farmSize}
+                  onChange={(e) => setFarmSize(e.target.value)}
+                />
               </div>
+              {/* Farm Scale */}
+              <div className="mb-2">
+                <label className="block font-medium ">Farm Scale</label>
+                <div className="flex space-x-4">
+                  {["Small", "Medium", "Large"].map((scale) => (
+                    <label key={scale} className="flex items-center space-x-2">
+                      <input
+                        type="radio"
+                        value={scale}
+                        checked={farmScale === scale}
+                        onChange={() => setFarmScale(scale)}
+                        className="text-green-500 focus:ring-green-500"
+                      />
+                      <span>{scale}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              {/* Land Rate */}
+              <div className="mb-2">
+                <label className="block font-medium mb-1">
+                  Land Rate (in Lakhs per acres)
+                </label>
+                <input
+                  type="number"
+                  className="px-3 py-1 border border-gray-300  outline-none w-48 focus:border-gray-600 hover:border-gray-600"
+                  value={landRate}
+                  onChange={(e) => setLandRate(e.target.value)}
+                />
+              </div>
+              {/* Distance from nearest market */}
+              <div className="">
+                <label className="block font-medium mb-1">
+                  Distance from nearest market (in KM)
+                </label>
+                <input
+                  type="number"
+                  className="px-3 py-1 border border-gray-300  outline-none w-48 focus:border-gray-600 hover:border-gray-600"
+                  value={distance}
+                  onChange={(e) => setDistance(e.target.value)}
+                />
+              </div>
+              <div className="flex justify-end">
+                <button
+                  type="submit"
+                  className=" border border-gray-700 px-2 py-1 "
+                >
+                  submit
+                </button>
+              </div>{" "}
             </div>
-
-            {/* Land Rate */}
-            <div className="">
-              <label className="block font-medium mb-1">
-                Land Rate (in Lakhs per acres)
-              </label>
-              <select
-                className="w-full  border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-                value={landRate}
-                onChange={(e) => setLandRate(e.target.value)}
-              >
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="20">20</option>
-                <option value="25">25</option>
-                <option value="30">30</option>
-              </select>
-            </div>
-
-            {/* Distance from nearest market */}
-            <div className="">
-              <label className="block font-medium mb-1">
-                Distance from nearest market (in KM)
-              </label>
-              <select
-                className="w-full  border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-                value={distance}
-                onChange={(e) => setDistance(e.target.value)}
-              >
-                <option value="2">2</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-              </select>
-            </div>
-          </div>
+          </form>
         </span>
       </div>
     </>
