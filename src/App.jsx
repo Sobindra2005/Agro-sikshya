@@ -1,4 +1,5 @@
-import Home from "./components/community/home";
+import Community from "./components/community/community";
+import Home from "./components/home";
 import Login from "./components/auth/login";
 import Header from "./components/menu/header";
 import Footer from "./components/menu/footer";
@@ -26,6 +27,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/bussinessplan" element={<BussinessPlanner />} />
+          <Route path="/Community" element={<Community />} />
         </Routes>
       </div> 
     </>

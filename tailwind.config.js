@@ -9,7 +9,11 @@ export default {
       colors:{
         white:"#f5f4f5",
         primary:"#323743",
-        accent:"#62CD14"
+        accent:"#62CD14",
+        secondary:"#8DE78A",
+        third:"#1DD75B",
+        fourth:"#0A4D20",
+        fifth:"#323743"
       }
     },
   },
