@@ -4,6 +4,7 @@ import Login from "./components/auth/login";
 import Header from "./components/menu/header";
 import Footer from "./components/menu/footer";
 import { BussinessPlanner } from "./components/bussinessplanner";
+import Market from "./components/market/market";
 import Signup from "./components/auth/signup";
 import Setting from "./components/setting";
 import { Routes, Route } from "react-router-dom";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/setting" element={<Setting />} />
           <Route path="/bussinessplan" element={<BussinessPlanner />} />
           <Route path="/Community" element={<Community />} />
+          <Route path="/Market" element={<Market />} />
         </Routes>
       </div> 
     </>
