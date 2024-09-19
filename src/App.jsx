@@ -9,6 +9,7 @@ import Signup from "./components/auth/signup";
 import Setting from "./components/setting";
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
+import User from "./components/user/user";
 import Sidebar from "./components/menu/sidebar";
 
 function App() {
@@ -28,8 +29,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/bussinessplan" element={<BussinessPlanner />} />
-          <Route path="/Community" element={<Community />} />
-          <Route path="/Market" element={<Market />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/market" element={<Market />} />
+          <Route path="/user" element={<User />} />
         </Routes>
       </div> 
     </>
