@@ -13,7 +13,8 @@ export default {
         secondary:"#8DE78A",
         third:"#1DD75B",
         fourth:"#0A4D20",
-        fifth:"#323743"
+        fifth:"#323743",
+        sixth:"#CCF7AE"
       }
     },
   },

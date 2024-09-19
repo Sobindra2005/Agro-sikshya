@@ -1,89 +1,92 @@
 import React from 'react'
-import { FaArrowDownLong,FaArrowUpLong } from "react-icons/fa6";
-import A from '../../assets/thumbnail/1.jpg'
+import { FaArrowDownLong, FaArrowUpLong } from "react-icons/fa6";
+import Potato from '../../assets/vegitables/potato.svg'
+import Chilli from '../../assets/vegitables/chilli.svg'
+import Fish from '../../assets/vegitables/fish.svg'
+import Sugar from '../../assets/vegitables/sugar.svg'
+import Chicken from '../../assets/vegitables/chicken.svg'
+
 export default function Table() {
     let datas = [
         {
-            id:1,
-            image:A,
-            name:"Potatoes",
-            price:"Rs80",
-            maxPrice:"Rs100",
-            minPrice:"Rs60",
-            change:<FaArrowDownLong/>
+            id: 1,
+            image: Potato,
+            name: "Potatoes",
+            price: "Rs80",
+            maxPrice: "Rs100",
+            minPrice: "Rs60",
+            change: <FaArrowDownLong className='text-red-600' />,
         },
         {
-            id:2,
-            image:A,
-            name:"Potatoes",
-            price:"Rs80",
-            maxPrice:"Rs100",
-            minPrice:"Rs60",
-            change:<FaArrowDownLong/>
+            id: 2,
+            image: Chilli,
+            name: "Chilli",
+            price: "Rs80",
+            maxPrice: "Rs100",
+            minPrice: "Rs60",
+            change: <FaArrowDownLong className='text-red-600' />
         },
         {
-            id:3,
-            image:A,
-            name:"Potatoes",
-            price:"Rs80",
-            maxPrice:"Rs100",
-            minPrice:"Rs60",
-            change:<FaArrowUpLong/>
+            id: 3,
+            image: Fish,
+            name: "Fish",
+            price: "Rs80",
+            maxPrice: "Rs100",
+            minPrice: "Rs60",
+            change: <FaArrowUpLong className='text-accent' />
         },
         {
-            id:4,
-            image:A,
-            name:"Potatoes",
-            price:"Rs80",
-            maxPrice:"Rs100",
-            minPrice:"Rs60",
-            change:<FaArrowUpLong/>
+            id: 4,
+            image: Sugar,
+            name: "Sugar",
+            price: "Rs80",
+            maxPrice: "Rs100",
+            minPrice: "Rs60",
+            change: <FaArrowUpLong className='text-accent' />
         },
         {
-            id:5,
-            image:A,
-            name:"Potatoes",
-            price:"Rs80",
-            maxPrice:"Rs100",
-            minPrice:"Rs60",
-            change:<FaArrowDownLong/>
+            id: 5,
+            image: Chicken,
+            name: "Chicken",
+            price: "Rs80",
+            maxPrice: "Rs100",
+            minPrice: "Rs60",
+            change: <FaArrowDownLong className='text-red-600' />
         },
-    ]
-  return (
-    <>
-    <div className='m-4'>
-        <table>
-            <thead>
-                <tr className='space-x-20 flex bg-accent p-4  text-white'>
-                    <th> Images</th>
-                    <th> Commodity</th>
-                    <th> PRICE (per KG)  </th>
-                    <th > Max price <span className='flex flex-col'> (over one month)</span></th>
-                    <th > Min price <span className='flex flex-col'> (over one month)</span></th>
-                    <th > Change <span className='flex flex-col'> (over one month)</span></th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    datas.map((data)=>{
-                        let { id,image, name,price, maxPrice, minPrice,Change} = data;
-                        return<>
-                        <div className='flex '>
-                            <tr className='flex  space-x-40'>
-                                <td>{image}</td>
-                                <td>{name}</td>
-                                <td>{price}</td>
-                                <td>{maxPrice}</td>
-                                <td>{minPrice}</td>
-                                <td>{Change}</td>
-                            </tr>
-                        </div>
-                        </>
-                    })
-                }
-            </tbody>
-        </table>
-    </div>
-    </>
-)
+    ];
+
+    return (
+        <>
+            <div className='m-4'>
+                <table className='bg-sixth w-full table-fixed border-collapse'>
+                    <thead>
+                        <tr className='bg-accent text-white m-2 p-2'>
+                            <th className='p-4'>Images</th>
+                            <th className='p-4 border'>Commodity</th>
+                            <th className='p-4'>PRICE (per KG)</th>
+                            <th className='p-4 border '>Max price <br />(over one month)</th>
+                            <th className='p-4'>Min price <br />(over one month)</th>
+                            <th className='p-4 border'>Change <br />(over one month)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {datas.map((data) => {
+                            let { id, image, name, price, maxPrice, minPrice, change } = data;
+                            const bgColor = id % 2 === 0 ? '#FFF0AF' : "#CCF7AE";
+                            return (
+                                <tr key={id} className='text-center ' style={{backgroundColor:bgColor}}   >
+                                    <td className='p-4'><img src={image} alt={name} className='aspect-square w-24' /></td>
+                                    <td className='p-4 font-bold'>{name}</td>
+                                    <td className='p-4'>{price}</td>
+                                    <td className='p-4'>{maxPrice}</td>
+                                    <td className='p-4'>{minPrice}</td>
+                                    <td className='p-16'>{change}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        </>
+    );
 }
