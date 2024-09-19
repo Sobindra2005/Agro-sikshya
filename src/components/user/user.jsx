@@ -34,7 +34,7 @@ export default function User() {
           <img src={A} alt="" className='w-24  h-24' />
           <div>
             <h3 className='font-bold text-xl'>Hari Khatri</h3>
-            <p>hari.harti@gmail.com</p>
+            <p>hari.kharti@gmail.com</p>
             <br />
               <p>Passionate about urban planning and sustainable design.</p>
           </div>

@@ -6,7 +6,7 @@ import Footer from "./components/menu/footer";
 import { BussinessPlanner } from "./components/bussinessplanner";
 import Market from "./components/market/market";
 import Signup from "./components/auth/signup";
-import Setting from "./components/setting";
+import Setting from "./components/setting/setting";
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import User from "./components/user/user";
