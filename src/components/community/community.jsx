@@ -1,5 +1,5 @@
 import React from 'react'
-import A from '../../assets/image30.png'
+import A from '../../assets/img30.png'
 import { CiSearch } from "react-icons/ci";
 import Starting from './starting';
 import Createpost from './createpost';

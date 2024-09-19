@@ -1,5 +1,5 @@
 import React from 'react'
-import A from '../../assets/image30.png'
+import A from '../../assets/img30.png'
 import Dragon from '../../assets/saveduser/dragon.svg'
 import Organic from '../../assets/saveduser/organic.svg'
 import Pie from '../../assets/saveduser/piechart.svg'
