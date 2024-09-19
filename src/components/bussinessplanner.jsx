@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "./menu/sidebar";
-import image from "../assets/Image 30.png";
+import image from '../assets/image30.png';
 import { MainBussinessPlanner } from "./mainBussinessPlanner/main";
 
 export const BussinessPlanner = () => {

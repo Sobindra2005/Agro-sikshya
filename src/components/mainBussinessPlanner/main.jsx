@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { IoIosArrowDropdown } from "react-icons/io";
-import Image34 from "../../assets/Image 34.png";
-import Image35 from "../../assets/Image 35.png";
-import Image37 from "../../assets/Image 37.png";
-import Image39 from "../../assets/Image 39.png";
-import Image40 from "../../assets/Image 40.png";
+import Image34 from "../../assets/Image34.png";
+import Image35 from "../../assets/Image35.png";
+import Image37 from "../../assets/Image37.png";
+import Image39 from "../../assets/Image39.png";
+import Image40 from "../../assets/Image40.png";
 
 const farmingData = [
   {
