@@ -9,6 +9,7 @@ import Badge2 from '../../assets/badges/img2.svg'
 import Badge3 from '../../assets/badges/img3.svg'
 import Badge4 from '../../assets/badges/img4.svg'
 import { CiLock } from "react-icons/ci";
+import Dashboard from './dashboard'
 
 export default function User() {
   let datas = [ 
@@ -28,6 +29,7 @@ export default function User() {
   ]
   return (
     <>
+    
     <div className='bg-purewhite p-4 border border-black'>
         <h2> User Profile</h2>    
         <div className='flex m-2 p-2 space-x-4'>
@@ -104,8 +106,8 @@ export default function User() {
                       </div>
                       <img src={Bar} alt="" />
                     </div>
-                    
                     </div>
+                    <Dashboard/>
                   </div>
     </>
   )
