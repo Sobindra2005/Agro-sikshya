@@ -7,7 +7,6 @@ import { FaGoogle, FaFacebook, FaApple, FaPhoneAlt } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { TbUserEdit } from "react-icons/tb";
 import { signup } from "../../appwrite/session";
-import { Role } from "appwrite";
 import { create_Document } from "../../appwrite/crud";
 import { useNavigate } from "react-router-dom";
 
@@ -16,8 +15,8 @@ export default function Signup() {
   const [lastName, setlastName] = useState("");
   const [email, setemail] = useState("");
   const [phone, setphone] = useState(Number);
-  const [gender, setgender] = useState("");
-  const [role, setrole] = useState("");
+  const [gender, setgender] = useState("male");
+  const [role, setrole] = useState("learner");
   const [password, setpassword] = useState("");
   const [Cpassword, setCpassword] = useState("");
 const navigate=useNavigate()
@@ -33,8 +32,10 @@ const navigate=useNavigate()
       email:`${email}`,
       phoneNum:`${phone}`
     }
+
+    //need to maintain small things 
    await signup(email,password)
-   await create_Document('66e571300039d4ec664e',payload)
+   await create_Document('66e571300039d4ec664e',Unique(),payload)
 
   };
 
@@ -152,7 +153,7 @@ const navigate=useNavigate()
                           className="m-2 p-1 w-96"
                         >
                           <option value="male">Male</option>
-                          <option value="male">Female</option>
+                          <option value="female">Female</option>
                         </select>
                       </div>
                     </div>
@@ -168,9 +169,9 @@ const navigate=useNavigate()
                           id="role"
                           className="m-2 p-1 w-96"
                         >
-                          <option value="male">Learner</option>
-                          <option value="male">Educator</option>
-                          <option value="male">Organizer</option>
+                          <option value="learner">Learner</option>
+                          <option value="Educator">Educator</option>
+                          <option value="organizer">Organizer</option>
                         </select>
                       </div>
                     </div>
