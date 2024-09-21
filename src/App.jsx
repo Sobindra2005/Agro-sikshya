@@ -36,7 +36,7 @@ function App() {
       </div>
 
 
-      <div className="bg-white">
+      <div className="bg-white pl-56">
         <Routes>
           <Route path="/setting" element={<><Sidebar /><Setting /></>} />
           <Route path="/bussinessplan" element={<><Sidebar /><BussinessPlanner /></>} />
