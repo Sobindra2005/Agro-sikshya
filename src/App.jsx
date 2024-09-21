@@ -10,8 +10,9 @@ import Setting from "./components/setting/setting";
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import User from "./components/user/user";
+import Courses from "./components/course/courses";
 import Sidebar from "./components/menu/sidebar";
-
+import Player from "./components/course/player";
 function App() {
   useEffect(() => {
     const key = localStorage.key(0);
@@ -31,6 +32,8 @@ function App() {
           <Route path="/bussinessplan" element={<BussinessPlanner />} />
           <Route path="/community" element={<Community />} />
           <Route path="/market" element={<Market />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/courses/player/:id" element={<Player />} />
           <Route path="/user" element={<User />} />
         </Routes>
       </div> 
