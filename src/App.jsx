@@ -36,8 +36,7 @@ function App() {
       </div>
 
 
-      <div className="bg-white pl-56">
-
+      <div className="bg-white">
         <Routes>
           <Route path="/setting" element={<><Sidebar /><Setting /></>} />
           <Route path="/bussinessplan" element={<><Sidebar /><BussinessPlanner /></>} />
@@ -48,8 +47,6 @@ function App() {
           <Route path="/user" element={<><Sidebar /><User /></>} />
           <Route path="/mybusiness" element={<><Sidebar /><MyBusinessPlan /></>} />
           <Route path="/mybusiness/plan" element={<><Sidebar /><Plan /></>} />
-
-
         </Routes>
       </div>
     </>
