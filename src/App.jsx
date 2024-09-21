@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-white w-screen ">
+      <div className="bg-white w-full ">
 
         <Routes>
           <Route path="/" element={<><Home /></>} />
