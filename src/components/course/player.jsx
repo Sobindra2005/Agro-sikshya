@@ -1,7 +1,9 @@
 import React from 'react';
 import Datas from './datas';
 import { useParams } from 'react-router-dom';
-
+import Agro from '../../assets/ads/agro.jpg'
+import Review from './review';
+import ReviewForm from './writereview';
 export default function Player() {
   const { id } = useParams(); // Extract the id from the URL
 
@@ -21,6 +23,7 @@ export default function Player() {
   const { title, url, description } = item;
 
   return (
+    <>
     <div className="container mx-auto p-6 h-full ">
       <h1 className="text-3xl font-bold mb-4">{title}</h1>
       <iframe 
@@ -32,5 +35,16 @@ export default function Player() {
       ></iframe>
       <p className="text-gray-700">{description}</p>
     </div>
+    <h4 className='text-center font-bold text-2xl'>के तपाईंलाई बीउ आवश्यक छ?</h4>
+    <div className='flex flex-row h-52 space-x-12 justify-center m-2'>
+      <img src={Agro  } alt="" />
+      <img src={Agro  } alt="" />
+      <img src={Agro  } alt="" />
+      <img src={Agro  } alt="" />
+    </div>
+    <Review />
+    <ReviewForm />
+        </>
+    
   );
 }

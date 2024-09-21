@@ -15,7 +15,6 @@ export default function Courses() {
             return (
               <div key={item.id} className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300">
                 <Link to={`/courses/player/${item.id}`} onClick={handleClick}>
-                <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
                 <iframe 
                   src={item.url} 
                   frameBorder="0" 
@@ -23,8 +22,9 @@ export default function Courses() {
                   allowFullScreen
                   className="w-full h-48 rounded-md mb-4"
                   ></iframe>
-                <p className="text-gray-700 mb-4">{item.description}</p>
-                <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Enroll Now</button>
+              
+                <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
+                <p className="text-xl font-semibold mb-2">{item.username}</p>
           </Link>
               </div>
             );
