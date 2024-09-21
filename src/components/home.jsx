@@ -10,7 +10,7 @@ import { FaUserCircle } from "react-icons/fa";
 export default function Home() {
   return (
     <>
-    <div className='relative w-full'>
+    <div className=' w-full'>
         <img src={A} alt="" />
 
         <div className='fixed top-0 right-0 left-56 bottom-0 '>
