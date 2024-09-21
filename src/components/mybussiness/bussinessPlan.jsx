@@ -1,7 +1,7 @@
 import { IoAddCircleOutline } from "react-icons/io5";
 import { FaTrash } from "react-icons/fa";
 import { TbEdit } from "react-icons/tb";
-export const BussinessPlan = () => {
+export const MyBusinessPlan = () => {
     return (
         <>
             <div className="py-4 h-screen ">

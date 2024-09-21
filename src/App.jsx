@@ -8,26 +8,24 @@ import Market from "./components/market/market";
 import Signup from "./components/auth/signup";
 import Setting from "./components/setting/setting";
 import { Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import User from "./components/user/user";
 import Courses from "./components/course/courses";
 import Sidebar from "./components/menu/sidebar";
 import Player from "./components/course/player";
-function App() {
-  const [AuthenticatedUser, SetAuthenticatedUser] = useState({})
+import { Plan } from "./components/mybussiness/plan";
+import { MyBusinessPlan } from "./components/mybussiness/bussinessPlan";
 
+function App() {
   useEffect(() => {
-    const User = GetCurrentUser()
-    console.log(User)
-    if (!!User) {
-      SetAuthenticatedUser(User)
-    }
-  }, [AuthenticatedUser]);
+    const key = localStorage.key(0);
+    const value = localStorage.getItem(key);
+    console.log(value);
+  }, []);
 
   return (
     <>
-
-      <div className="bg-white">
+      <div className="bg-white ">
 
         <Routes>
           <Route path="/" element={<><Header /><Home /> <Footer /></>} />
@@ -37,22 +35,23 @@ function App() {
 
       </div>
 
+
       <div className="bg-white pl-56">
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/setting" element={<Setting />} />
-          <Route path="/bussinessplan" element={<BussinessPlanner />} />
-          <Route path="/community" element={<Community />} />
-          <Route path="/market" element={<Market />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/courses/player/:id" element={<Player />} />
-          <Route path="/user" element={<User />} />
+          <Route path="/setting" element={<><Sidebar /><Setting /></>} />
+          <Route path="/bussinessplan" element={<><Sidebar /><BussinessPlanner /></>} />
+          <Route path="/community" element={<><Sidebar /><Community /></>} />
+          <Route path="/market" element={<><Sidebar /><Market /></>} />
+          <Route path="/courses" element={<><Sidebar /><Courses /></>} />
+          <Route path="/courses/player/:id" element={<><Sidebar /><Player /></>} />
+          <Route path="/user" element={<><Sidebar /><User /></>} />
+          <Route path="/mybusiness" element={<><Sidebar /><MyBusinessPlan /></>} />
+          <Route path="/mybusiness/plan" element={<><Sidebar /><Plan /></>} />
+
+
         </Routes>
       </div>
-
     </>
   );
 }
