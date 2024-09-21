@@ -1,6 +1,8 @@
 import { IoAddCircleOutline } from "react-icons/io5";
 import { FaTrash } from "react-icons/fa";
 import { TbEdit } from "react-icons/tb";
+import { Link } from "react-router-dom";
+
 export const MyBusinessPlan = () => {
     return (
         <>
@@ -15,8 +17,8 @@ export const MyBusinessPlan = () => {
                             {/* for list to map  */}
                             <div className="border  flex justify-between border-gray-300 mb-3 p-2">
 
-                                <div className="cursor-pointer">  <span className="text-lg font-semibold text-gray-700 ">1.</span> <span className=" text-lg font-semibold text-gray-700 ">
-                                    My Revenue plan
+                                <div className="cursor-pointer hover:bg-gray-400">  <span className="text-lg font-semibold text-gray-700 ">1.</span> <span className=" text-lg font-semibold text-gray-700 ">
+                                    <Link to="/mybusiness/plan"> My Revenue plan</Link>
                                 </span>
                                 </div>
 
