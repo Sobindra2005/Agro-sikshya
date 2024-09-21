@@ -45,8 +45,8 @@ function App() {
           <Route path="/courses" element={<><Sidebar /><Courses /></>} />
           <Route path="/courses/player/:id" element={<><Sidebar /><Player /></>} />
           <Route path="/user" element={<><Sidebar /><User /></>} />
-          <Route path="/mybusiness" element={<><Sidebar /><MyBusinessPlan /></>} />
-          <Route path="/mybusiness/plan" element={<><Sidebar /><Plan /></>} />
+          <Route path="/businessDiary" element={<><Sidebar /><MyBusinessPlan /></>} />
+          <Route path="/businessDiary/plan" element={<><Sidebar /><Plan /></>} />
         </Routes>
       </div>
     </>

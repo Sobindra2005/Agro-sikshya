@@ -67,7 +67,7 @@ const financialData = [
 const TableOne = () => {
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
-      <h4 className="mb-3 flex justify-between  text-xl font-semibold text-black dark:text-white">
+      <h4 className="mb-3 flex justify-between  text-xl font-semibold text-black ">
         Task List <span className="flex  cursor-pointer px-2 py-1 gap-x-2 items-center text-lg font-normal"><BsHouseAdd /> Add New Task</span>
       </h4>
 
@@ -108,7 +108,7 @@ const TableOne = () => {
 
         {financialData.map((data, key) => (
           <div
-            className={`grid grid-cols-3 text-gray-700 sm:grid-cols-6  Rs.{key === financialData.length - 1
+            className={`grid grid-cols-3 text-black sm:grid-cols-6  Rs.{key === financialData.length - 1
               ? ""
               : "border-b border-stroke dark:border-strokedark"
               }`}
@@ -116,16 +116,16 @@ const TableOne = () => {
           >
 
             <div className="flex items-center  gap-2 p-2.5 xl:p-5">
-              <div className="flex-shrink-0 flex items-center text-gray-500 ">
+              <div className="flex-shrink-0 flex items-center  ">
                 {key + 1}.
               </div>
-              <p className="hidden  dark:text-white sm:block">
+              <p className="hidden   sm:block">
                 {data.plan}
               </p>
             </div>
 
             <div className="flex items-center justify-center p-2.5 xl:p-5">
-              <p className=" text-center  dark:text-white">{data.timePeriod}</p>
+              <p className=" text-center  ">{data.timePeriod}</p>
             </div>
 
             <div className="flex items-center justify-center p-2.5 xl:p-5">
@@ -133,11 +133,11 @@ const TableOne = () => {
             </div>
 
             <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-              <p className="k dark:text-white"> Rs.{data.revenue}</p>
+              <p className="k "> Rs.{data.revenue}</p>
             </div>
             <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-              {data.profit != 0 ? <p className="text-orange-500 dark:text-white">+ Rs.{data.profit}</p>
-                : <p className=" text-orange-900 dark:text-white">- Rs.{data.loss}</p>}
+              {data.profit != 0 ? <p className="text-orange-500 ">+ Rs.{data.profit}</p>
+                : <p className=" text-orange-900 ">- Rs.{data.loss}</p>}
             </div>
 
             <div className="flex justify-center items-center space-x-3.5">
