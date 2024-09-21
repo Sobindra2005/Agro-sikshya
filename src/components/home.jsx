@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
     <div className=' w-full'>
-        <img src={A} alt="" />
+        <img src={A} alt="" className='w-full object-cover object-center h-full' />
 
         <div className='fixed top-0 right-0 left-56 bottom-0 '>
           <marquee className='bg-accent' behavior="loop" direction="right"> If you're thinking of getting into farming, talk to the experts. | के तपाईं खेतीमा केहि गर्ने सोचमा हुनुहुन्छ भने, विज्ञहरूसँग कुरा गर्नुहोस् ।</marquee>
