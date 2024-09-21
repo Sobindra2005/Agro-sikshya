@@ -10,13 +10,9 @@ import Setting from "./components/setting/setting";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import User from "./components/user/user";
+import Courses from "./components/course/courses";
 import Sidebar from "./components/menu/sidebar";
-import { GetCurrentUser } from "./appwrite/service";
-import { BussinessPlan } from "./components/mybussiness/bussinessPlan";
-import { Plan } from "./components/mybussiness/plan";
-// const key = localStorage.key(0);
-// const value = localStorage.getItem(key);
-
+import Player from "./components/course/player";
 function App() {
   const [AuthenticatedUser, SetAuthenticatedUser] = useState({})
 
@@ -44,16 +40,16 @@ function App() {
       <div className="bg-white pl-56">
 
         <Routes>
-          <Route path="/home" element={<> <Sidebar /><Home /></>} />
-          <Route path="/bussinessplan" element={<> <Sidebar /><BussinessPlanner /></>} />
-          <Route path="/bussinessplan" element={<> <Sidebar /><BussinessPlanner /></>} />
-          <Route path="/community" element={<> <Sidebar /><Community /></>} />
-          <Route path="/market" element={<> <Sidebar /><Market /></>} />
-          <Route path="/setting" element={<> <Sidebar /><Setting /></>} />
-          <Route path="/user" element={<> <Sidebar /><User /></>} />
-          <Route path="/myBusiness" element={<> <Sidebar />< BussinessPlan /></>} />
-          <Route path="/myBusiness/plan" element={<> <Sidebar />< Plan /></>} />
-
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/setting" element={<Setting />} />
+          <Route path="/bussinessplan" element={<BussinessPlanner />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/market" element={<Market />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/courses/player/:id" element={<Player />} />
+          <Route path="/user" element={<User />} />
         </Routes>
       </div>
 
