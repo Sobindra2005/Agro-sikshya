@@ -15,10 +15,10 @@ export const MyBusinessPlan = () => {
                     <div className="border mt-4 border-black p-3  shadow shadow-gray-500  ">
                         <div className=" p-2 flex justify-between flex-col px-3 ">
                             {/* for list to map  */}
-                            <div className="border  flex justify-between border-gray-300 mb-3 p-2">
+                            <div className="border  flex justify-between hover:bg-gray-200 border-gray-300 mb-3 p-2">
 
-                                <div className="cursor-pointer hover:bg-gray-400">  <span className="text-lg font-semibold text-gray-700 ">1.</span> <span className=" text-lg font-semibold text-gray-700 ">
-                                    <Link to="/mybusiness/plan"> My Revenue plan</Link>
+                                <div className="cursor-pointer ">  <span className="text-lg font-semibold text-gray-700 ">1.</span> <span className=" text-lg font-semibold text-gray-700 ">
+                                    <Link to="/businessDiary/plan"> My Revenue plan</Link>
                                 </span>
                                 </div>
 
