@@ -28,7 +28,7 @@ function App() {
       <div className="bg-white ">
 
         <Routes>
-          <Route path="/" element={<><Header /><Home /> <Footer /></>} />
+          <Route path="/" element={<><Home /></>} />
           <Route path="/login" element={<><Header /><Login /> <Footer /></>} />
           <Route path="/signup" element={<><Header /><Signup /> <Footer /></>} />
         </Routes>
