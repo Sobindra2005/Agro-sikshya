@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const MyBusinessPlan = () => {
     return (
         <>
-            <div className="py-4 h-screen ">
+            <div className="py-4 h-screen  text-black ">
                 <h1 className="font-semibold  text-gray-800 text-xl ">My Bussiness</h1>
 
                 <div className="mt-4 p-5">
