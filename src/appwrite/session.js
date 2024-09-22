@@ -1,8 +1,9 @@
 import { Account, ID } from "appwrite";
 import { client } from "./appwrite";
 
+const account = new Account(client);
+
 export const signup = (email, password) => {
-    const account = new Account(client);
     const responce = account.create('unique()', `${email}`, `${password}`);
     responce.then(function (response) {
         console.log("account is created", response);
@@ -12,7 +13,6 @@ export const signup = (email, password) => {
 }
 
 export const signin = (email, password, rememberMe) => {
-    const account = new Account(client);
     const responce = account.createEmailPasswordSession(`${email}`, `${password}`);
     responce.then(function (response) {
         console.log("account is logged", response);
@@ -42,7 +42,6 @@ export const signin = (email, password, rememberMe) => {
 
 export const signout = () => {
     const logoutPromise = account.deleteSession('current');
-
     logoutPromise.then(function (response) {
         console.log('Logout successful:', response);
     }, function (error) {
@@ -68,7 +67,6 @@ export const Newpassword = (newPassword) => {
     const promise = account.updateRecovery(
         userId, secret, newPassword, newPassword
     );
-
     promise.then(function (response) {
         console.log("success update password",response);
     }, function (error) {

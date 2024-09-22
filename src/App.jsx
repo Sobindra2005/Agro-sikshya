@@ -13,6 +13,9 @@ import User from "./components/user/user";
 import Courses from "./components/course/courses";
 import Sidebar from "./components/menu/sidebar";
 import Player from "./components/course/player";
+import { Plan } from "./components/mybussiness/plan";
+import { MyBusinessPlan } from "./components/mybussiness/bussinessPlan";
+
 import Region from "./components/regional-crops/region";
 
 function App() {
@@ -23,10 +26,30 @@ function App() {
 
   return (
     <>
+      <div className="bg-white w-full ">
+
+        <Routes>
+          <Route path="/" element={<><Home /></>} />
+          <Route path="/login" element={<><Header /><Login /> <Footer /></>} />
+          <Route path="/signup" element={<><Header /><Signup /> <Footer /></>} />
+        </Routes>
+
+      </div>
+
+
       <div className="bg-white pl-56">
         <Header />
         <Sidebar />
         <Routes>
+          <Route path="/setting" element={<><Sidebar /><Setting /></>} />
+          <Route path="/bussinessplan" element={<><Sidebar /><BussinessPlanner /></>} />
+          <Route path="/community" element={<><Sidebar /><Community /></>} />
+          <Route path="/market" element={<><Sidebar /><Market /></>} />
+          <Route path="/courses" element={<><Sidebar /><Courses /></>} />
+          <Route path="/courses/player/:id" element={<><Sidebar /><Player /></>} />
+          <Route path="/user" element={<><Sidebar /><User /></>} />
+          <Route path="/businessDiary" element={<><Sidebar /><MyBusinessPlan /></>} />
+          <Route path="/businessDiary/plan" element={<><Sidebar /><Plan /></>} />
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -39,7 +62,7 @@ function App() {
           <Route path="/courses/player/:id" element={<Player />} />
           <Route path="/user" element={<User />} />
         </Routes>
-      </div> 
+      </div>
     </>
   );
 }

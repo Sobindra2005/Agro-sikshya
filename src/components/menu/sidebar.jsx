@@ -25,6 +25,7 @@ export default function Sidebar() {
         <ul className='space-y-4 font-bold'>
              <li ><Link to='/courses'className='flex ml-2 text-sm text-primary hover:text-accent items-center '><FaBookOpen className='mr-2'/>Course</Link></li>
              <li ><Link to='/bussinessplan'className='flex ml-2 text-sm text-primary hover:text-accent items-center '><VscGraph className='mr-2'/>Business Planner</Link></li>
+             <li ><Link to='/businessDiary'className='flex ml-2 text-sm text-primary hover:text-accent items-center '><VscGraph className='mr-2'/>Business Diary</Link></li>
              <li ><Link to='/regional-crops'className='flex ml-2 text-sm text-primary hover:text-accent items-center '><VscGraph className='mr-2'/>regional-crops</Link></li>
              <li ><Link to='/market'className='flex ml-2 text-sm text-primary hover:text-accent items-center '><BsGraphUpArrow className='mr-2'/>Market Trend</Link></li>
              <li ><Link to='/community 'className='flex ml-2 text-sm text-primary hover:text-accent items-center '><FaUsers className='mr-2'/>Community Forum</Link></li>
