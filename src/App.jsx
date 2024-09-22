@@ -13,16 +13,18 @@ import User from "./components/user/user";
 import Courses from "./components/course/courses";
 import Sidebar from "./components/menu/sidebar";
 import Player from "./components/course/player";
+import Region from "./components/regional-crops/region";
+
 function App() {
-  useEffect(() => {
-    const key = localStorage.key(0);
-    const value = localStorage.getItem(key);
-    console.log(value);
-  }, []);
+  // useEffect(() => {
+  
+  //   console.log(value);
+  // }, []);
 
   return (
     <>
       <div className="bg-white pl-56">
+        <Header />
         <Sidebar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -33,6 +35,7 @@ function App() {
           <Route path="/community" element={<Community />} />
           <Route path="/market" element={<Market />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/regional-crops" element={<Region />} />
           <Route path="/courses/player/:id" element={<Player />} />
           <Route path="/user" element={<User />} />
         </Routes>

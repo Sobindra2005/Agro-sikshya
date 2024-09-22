@@ -18,7 +18,7 @@ export const BussinessPlanner = () => {
               </span>
               <MainBussinessPlanner />
             </div>
-            <img className="w-16 h-16 ml-4" src={`${image}`} />
+            {/* <img className="w-16 h-16 ml-4" src={`${image}`} /> */}
           </div>
         </div>
       </div>
