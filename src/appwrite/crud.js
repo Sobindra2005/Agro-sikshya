@@ -1,10 +1,10 @@
 import { client } from "./appwrite";
 import { Databases } from "appwrite";
-
+import { Query } from "appwrite";
 const databases = new Databases(client);
 
-export const create_Document = (collectionId,DocumentId, payload) => {
-  databases.createDocument('66e515e60033d4ac0db3', collectionId, `${DocumentId}`, payload)
+export const create_Document = (collectionId, payload) => {
+  databases.createDocument('66e515e60033d4ac0db3', collectionId, `unique()`, payload)
     .then(response => {
       console.log('Document created:', response);
     })
@@ -13,8 +13,8 @@ export const create_Document = (collectionId,DocumentId, payload) => {
     });
 }
 
-export const read_Document = (collectionId) => {
-  databases.listDocuments('66e515e60033d4ac0db3', collectionId)
+export const read_Document = (collectionId, DocumentId) => {
+  databases.listDocuments('66e515e60033d4ac0db3', collectionId, `${DocumentId}`)
     .then(response => {
       console.log('Document created:', response);
     })
@@ -23,6 +23,19 @@ export const read_Document = (collectionId) => {
     });
 
 }
+
+
+export const read_DocumentWithId = (collectionId, Id) => {
+  databases.listDocuments('66e515e60033d4ac0db3', collectionId, [
+    Query.equal('AuthorId', Id)
+  ])
+    .then(response => {
+    return response.documents;
+    })
+    .catch(error => {
+      console.error('Error retrieving documents:', error); 
+    });
+};
 
 export const update_Document = async (documentId, collectionId, updatedData) => {
   try {
