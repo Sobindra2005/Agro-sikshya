@@ -42,7 +42,7 @@ export default function Review() {
     return (
         <>
             <div>
-                <section className="bg-white px-4 py-12 md:py-24">
+                <section className="bg-purewhite px-4 py-12 md:py-24">
                     <div className="max-w-screen-xl mx-auto">
                         <h2 className="font-black text-black text-center text-3xl leading-none uppercase max-w-2xl mx-auto mb-12">
                             What Listeners Are Saying

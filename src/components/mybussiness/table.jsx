@@ -2,69 +2,90 @@
 
 import { LiaEdit } from "react-icons/lia";
 import { BsHouseAdd } from "react-icons/bs";
-
-const financialData = [
-  {
-    timePeriod: "January 2024",
-    revenue: 15000,
-    cost: 8000,
-    profit: 7000,
-    loss: 0,
-    plan: "Input Purchase Tracking"
-  },
-  {
-    timePeriod: "February 2024",
-    revenue: 13000,
-    cost: 8500,
-    profit: 4500,
-    loss: 0,
-    plan: "Labor Costs Monitoring"
-  },
-  {
-    timePeriod: "March 2024",
-    revenue: 10000,
-    cost: 12000,
-    profit: 0,
-    loss: 2000,
-    plan: "Pest Control Expenses"
-  },
-  {
-    timePeriod: "April 2024",
-    revenue: 18000,
-    cost: 10000,
-    profit: 8000,
-    loss: 0,
-    plan: "Irrigation Investment"
-  },
-  {
-    timePeriod: "May 2024",
-    revenue: 16000,
-    cost: 9000,
-    profit: 7000,
-    loss: 0,
-    plan: "Fertilizer Purchase Review"
-  },
-  {
-    timePeriod: "June 2024",
-    revenue: 12000,
-    cost: 13000,
-    profit: 0,
-    loss: 1000,
-    plan: "Equipment Maintenance Costs"
-  },
-  {
-    timePeriod: "July 2024",
-    revenue: 20000,
-    cost: 11000,
-    profit: 9000,
-    loss: 0,
-    plan: "Crop Insurance Payment"
-  },
-];
+import { useTasks } from './TaskContext';
+import { useEffect } from "react";
 
 
 
-const TableOne = () => {
+// const financialData = [
+
+//   {
+//     timePeriod: "January 2024",
+//     revenue: 15000,
+//     cost: 8000,
+//     profit: 7000,
+//     loss: 0,
+//     plan: "Input Purchase Tracking"
+//   },
+//   {
+//     timePeriod: "February 2024",
+//     revenue: 13000,
+//     cost: 8500,
+//     profit: 4500,
+//     loss: 0,
+//     plan: "Labor Costs Monitoring"
+//   },
+//   {
+//     timePeriod: "March 2024",
+//     revenue: 10000,
+//     cost: 12000,
+//     profit: 0,
+//     loss: 2000,
+//     plan: "Pest Control Expenses"
+//   },
+//   {
+//     timePeriod: "April 2024",
+//     revenue: 18000,
+//     cost: 10000,
+//     profit: 8000,
+//     loss: 0,
+//     plan: "Irrigation Investment"
+//   },
+//   {
+//     timePeriod: "May 2024",
+//     revenue: 16000,
+//     cost: 9000,
+//     profit: 7000,
+//     loss: 0,
+//     plan: "Fertilizer Purchase Review"
+//   },
+//   {
+//     timePeriod: "June 2024",
+//     revenue: 12000,
+//     cost: 13000,
+//     profit: 0,
+//     loss: 1000,
+//     plan: "Equipment Maintenance Costs"
+//   },
+//   {
+//     timePeriod: "July 2024",
+//     revenue: 20000,
+//     cost: 11000,
+//     profit: 9000,
+//     loss: 0,
+//     plan: "Crop Insurance Payment"
+//   },
+// ];
+
+
+
+const TableOne = ({setCurrentTask,setIsEditing}) => {
+  const { tasks, dispatch } = useTasks();
+
+  const handleEdit = (index) => {
+    setCurrentTask({ index, ...tasks[index] });
+    setIsEditing(true);
+  };
+
+  const handleDelete = (index) => {
+    dispatch({ type: 'DELETE_TASK', payload: index });
+  };
+
+  useEffect(()=>{
+console.log(tasks)
+  },[])
+
+
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <h4 className="mb-3 flex justify-between  text-xl font-semibold text-black ">
@@ -106,7 +127,7 @@ const TableOne = () => {
 
         </div>
 
-        {financialData.map((data, key) => (
+        {tasks.map((data, key) => (
           <div
             className={`grid grid-cols-3 text-black sm:grid-cols-6  Rs.{key === financialData.length - 1
               ? ""
@@ -120,12 +141,12 @@ const TableOne = () => {
                 {key + 1}.
               </div>
               <p className="hidden   sm:block">
-                {data.plan}
+                {data.name}
               </p>
             </div>
 
             <div className="flex items-center justify-center p-2.5 xl:p-5">
-              <p className=" text-center  ">{data.timePeriod}</p>
+              <p className=" text-center  ">{data.date}</p>
             </div>
 
             <div className="flex items-center justify-center p-2.5 xl:p-5">
@@ -136,8 +157,8 @@ const TableOne = () => {
               <p className="k "> Rs.{data.revenue}</p>
             </div>
             <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-              {data.profit != 0 ? <p className="text-orange-500 ">+ Rs.{data.profit}</p>
-                : <p className=" text-orange-900 ">- Rs.{data.loss}</p>}
+              {Number(data.cost) > Number(data.revenue) ? <p className="text-orange-500 "> {`-Rs.${data.cost - data.revenue}`}</p>
+                :Number(data.cost) - Number(data.revenue) === 0 ?<p className=" text-orange-900 "> {`Neither Loss Nor Profit`} </p> :<p className=" text-orange-900 "> {`+ Rs.${data.revenue - data.cost}`} </p>}
             </div>
 
             <div className="flex justify-center items-center space-x-3.5">
@@ -160,7 +181,7 @@ const TableOne = () => {
                   />
                 </svg>
               </button>
-              <button className="text-primary hover:text-black">
+              <button onClick={() => handleDelete(key)} className="text-primary hover:text-black">
                 <svg
                   className="fill-current"
                   width="18"
@@ -187,7 +208,7 @@ const TableOne = () => {
                   />
                 </svg>
               </button>
-              <button className="text-primary hover:text-black">
+              <button onClick={() => handleEdit(key)} className="text-primary hover:text-black">
                 <LiaEdit size={18} />
               </button>
             </div>

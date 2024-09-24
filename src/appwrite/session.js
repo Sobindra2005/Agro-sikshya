@@ -1,12 +1,14 @@
-import { Account, ID } from "appwrite";
+import { Account } from "appwrite";
 import { client } from "./appwrite";
+
 
 const account = new Account(client);
 
 export const signup = (email, password) => {
     const responce = account.create('unique()', `${email}`, `${password}`);
     responce.then(function (response) {
-        console.log("account is created", response);
+        console.log("account created",responce)
+     return responce
     }, function (error) {
         console.log("error occur during creating account", error);
     })
@@ -40,13 +42,15 @@ export const signin = (email, password, rememberMe) => {
 }
 
 
-export const signout = () => {
-    const logoutPromise = account.deleteSession('current');
-    logoutPromise.then(function (response) {
+export const signout = async () => {
+    try {
+        const response = await client.account.deleteSession('current');
         console.log('Logout successful:', response);
-    }, function (error) {
+        return response; // Optionally return the response
+    } catch (error) {
         console.log('Logout error:', error);
-    });
+        throw error; // Throw error for further handling
+    }
 }
 
 

@@ -19,12 +19,12 @@ export default function Communitypost() {
     <>
     <div>
         <h1 className='text-2xl m-2'>Community Post</h1>
-        <div className='flex space-x-4 m-4 '>
+        <div className='flex sm:space-x-4 gap-2 m-4  flex-col sm:flex-row'>
             {
                 datas.map((data)=>{
                     let { title, description} = data;
                     return<>
-                    <div className='bg-secondary p-2 items-center justify-center border rounded-xl w-96'>
+                    <div className='bg-secondary p-2 items-center justify-center border rounded-xl sm:w-96 '>
                     <h5 className='text-xl'>{title}</h5>
                     <p className='text-sm'>{description}</p>
                     </div>

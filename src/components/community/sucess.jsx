@@ -24,7 +24,7 @@ export default function Sucess() {
     <>
     <div>
         <h3 className='text-2xl text-fifth'>Success Stories</h3>
-        <div className='bg-secondary flex flex-col space-y-5 relative m-5 rounded-xl'>
+        <div className='bg-secondary border border-gray-700 flex flex-col space-y-5 relative m-5 rounded-xl'>
             {
                 users.map((user)=>{
                     let {id, image,title,name,time} = user;
@@ -36,7 +36,7 @@ export default function Sucess() {
                     <p className='text-sm'>{time} by {name}</p>
                     </div>
                     </div>
-                    <button className='border rounded-xl p-2 bg-third hover:bg-secondary hover:text-white  flex justify-center items-center absolute right-[40%] bottom-2'>View More<FaChevronDown className='text-fourth'/></button>
+                   
                   
                     </>
                 })

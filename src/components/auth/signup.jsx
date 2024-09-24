@@ -10,6 +10,7 @@ import { signup } from "../../appwrite/session";
 import { create_Document } from "../../appwrite/crud";
 import { useNavigate } from "react-router-dom";
 
+
 export default function Signup() {
   const [firstName, setfirstName] = useState("");
   const [lastName, setlastName] = useState("");
@@ -19,27 +20,30 @@ export default function Signup() {
   const [role, setrole] = useState("learner");
   const [password, setpassword] = useState("");
   const [Cpassword, setCpassword] = useState("");
-const navigate=useNavigate()
- 
-  const handleSubmit = async(e) => {
-    e.preventDefault()
-    console.log('on handle submit ')
-    const payload={
-      firstName:`${firstName}`,
-      lastName:`${lastName}`,
-      gender:`${gender}`,
-      role:`${role}`,
-      email:`${email}`,
-      phoneNum:`${phone}`
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const responce = await signup(email, password);
+    
+        const payload = {
+      firstName: `${firstName}`,
+      lastName: `${lastName}`,
+      gender: `${gender}`,
+      role: `${role}`,
+      email: `${email}`,
+      phoneNum: `${phone}`,
+      // AuthorId: `${}`
     }
 
-    //need to maintain small things 
-   await signup(email,password)
-   await create_Document('66e571300039d4ec664e',Unique(),payload)
-
+      const response = await create_Document('66f0d73a000eab1810f8', payload)
+    console.log(response)
+    navigate('/login')
+ 
+    
   };
 
-  
+
   return (
     <>
       <div>
@@ -55,12 +59,12 @@ const navigate=useNavigate()
               Create an Account to Explore, Discover and Implement!
             </h2>
           </div>
-          <div className=" flex justify-center">
+          <div className=" flex  justify-center ">
             <div className="  m-4 p-8 rounded-lg bg-white">
               <h2 className="text-center font-bold text-xl mb-4">Sign in</h2>
-              <form onSubmit={(e)=>handleSubmit(e)}>
+              <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="flex flex-col items-center justify-center ">
-                  <div className="flex space-x-2 ">
+                  <div className="flex flex-col sm:flex-row space-x-2 ">
                     <div className="mb-4  ">
                       <label htmlFor="email" className="block mb-1 font-bold">
                         First Name:
@@ -70,10 +74,10 @@ const navigate=useNavigate()
                         <input
                           value={firstName}
                           onChange={(e) => setfirstName(e.target.value)}
-                          type="name"
-                          name="name"
-                          id="name"
-                          className="border w-96 p-2 pl-10"
+                          type="text"
+                          name="firstName"
+                          id="firstName"
+                          className="border sm:w-96 p-2 pl-10"
                           placeholder="Enter Your Name"
                           required
                         />
@@ -92,7 +96,7 @@ const navigate=useNavigate()
                           type="lname"
                           name="lname"
                           id="lname"
-                          className="border w-96 p-2 pl-10"
+                          className="border sm:w-96 p-2 pl-10"
                           placeholder="Enter Your Surname"
                           required
                         />
@@ -100,7 +104,7 @@ const navigate=useNavigate()
                     </div>
                   </div>
 
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-2 flex-col sm:flex-row">
                     <div className="mb-4  ">
                       <label htmlFor="email" className="block mb-1 font-bold">
                         Email:
@@ -111,9 +115,9 @@ const navigate=useNavigate()
                           value={email}
                           onChange={(e) => setemail(e.target.value)}
                           type="email"
-                          name="name"
-                          id="name"
-                          className="border w-96 p-2 pl-10"
+                          name="email"
+                          id="email"
+                          className="border sm:w-96 p-2 pl-10"
                           placeholder="Enter you email"
                           required
                         />
@@ -128,10 +132,10 @@ const navigate=useNavigate()
                         <input
                           value={phone}
                           onChange={(e) => setphone(e.target.value)}
-                          type="number"
-                          name="name"
-                          id="name"
-                          className="border w-96 p-2 pl-10"
+                          type="text"
+                          name="text"
+                          id="text"
+                          className="border sm:w-96 p-2 pl-10"
                           placeholder="Enter you number"
                           required
                         />
@@ -139,7 +143,7 @@ const navigate=useNavigate()
                     </div>
                   </div>
 
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-2 ">
                     <div className="mb-4  ">
                       <label htmlFor="gender" className="block mb-1 font-bold">
                         Gender:
@@ -150,7 +154,7 @@ const navigate=useNavigate()
                           onChange={(e) => setgender(e.target.value)}
                           name="gender"
                           id="gender"
-                          className="m-2 p-1 w-96"
+                          className="m-2 p-1 sm:w-96"
                         >
                           <option value="male">Male</option>
                           <option value="female">Female</option>
@@ -164,10 +168,10 @@ const navigate=useNavigate()
                       <div className="flex relative">
                         <select
                           value={role}
-                          onChange={(e) =>setrole(e.target.value)}
+                          onChange={(e) => setrole(e.target.value)}
                           name="role"
                           id="role"
-                          className="m-2 p-1 w-96"
+                          className="m-2 p-1 sm:w-96"
                         >
                           <option value="learner">Learner</option>
                           <option value="Educator">Educator</option>
@@ -177,7 +181,7 @@ const navigate=useNavigate()
                     </div>
                   </div>
 
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-2 flex-col sm:flex-row">
                     <div className="mb-4 ">
                       <label
                         htmlFor="password"
@@ -189,11 +193,11 @@ const navigate=useNavigate()
                         <RiLockPasswordLine className="absolute left-2 text-2xl top-1/2 transform -translate-y-1/2" />
                         <input
                           value={password}
-                          onChange={(e) =>setpassword(e.target.value)}
+                          onChange={(e) => setpassword(e.target.value)}
                           type="password"
                           name="password"
                           id="password"
-                          className="border w-96 p-2 pl-10"
+                          className="border sm:w-96 p-2 pl-10"
                           placeholder="Enter your password"
                           required
                         />
@@ -210,11 +214,11 @@ const navigate=useNavigate()
                         <RiLockPasswordLine className="absolute left-2 text-2xl top-1/2 transform -translate-y-1/2" />
                         <input
                           value={Cpassword}
-                          onChange={(e) =>setCpassword(e.target.value)}
+                          onChange={(e) => setCpassword(e.target.value)}
                           type="password"
                           name="cpassword"
                           id="cpassword"
-                          className="border w-96 p-2 pl-10"
+                          className="border sm:w-96 p-2 pl-10"
                           placeholder="Enter your password"
                           required
                         />
@@ -224,7 +228,7 @@ const navigate=useNavigate()
 
                   <button
                     type="submit"
-                    className="border w-96 m-2 p-2 bg-accent text-white hover:text-accent hover:bg-primary"
+                    className="border sm:w-96 m-2 p-2 bg-accent text-white hover:text-accent hover:bg-primary"
                   >
                     Create New Account
                   </button>
